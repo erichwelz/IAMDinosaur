@@ -48,14 +48,14 @@ Learn.startLearning = function () {
   }
 
   Learn.executeGeneration();
-  
+
 }
 
 
 // Given the entire generation of genomes (An array),
 // applyes method `executeGenome` for each element.
 // After all elements have completed executing:
-// 
+//
 // 1) Select best genomes
 // 2) Does cross over (except for 2 genomes)
 // 3) Does Mutation-only on remaining genomes
@@ -183,7 +183,7 @@ Learn.executeGenome = function (genome, next){
 // If genome only keeps a single activation value for any given input,
 // it will return false
 Learn.checkExperience = function (genome) {
-  
+
   var step = 0.1, start = 0.0, stop = 1;
 
   // Inputs are default. We only want to test the first index
@@ -195,7 +195,7 @@ Learn.checkExperience = function (genome) {
 
     activation = genome.activate(inputs);
     state = Learn.gm.getDiscreteState(activation);
-    
+
     outputs[state] = true;
   }
 
@@ -220,7 +220,7 @@ Learn.loadGenomes = function (genomes, deleteOthers){
 }
 
 
-// Builds a new genome based on the 
+// Builds a new genome based on the
 // expected number of inputs and outputs
 Learn.buildGenome = function (inputs, outputs) {
   Learn.ui.logger.log('Build genome '+(Learn.genomes.length+1));
@@ -259,7 +259,7 @@ Learn.crossOver = function (netA, netB) {
 Learn.mutate = function (net){
   // Mutate
   Learn.mutateDataKeys(net.neurons, 'bias', Learn.mutationProb);
-  
+
   Learn.mutateDataKeys(net.connections, 'weight', Learn.mutationProb);
 
   return net;
@@ -268,7 +268,7 @@ Learn.mutate = function (net){
 
 // Given an Object A and an object B, both Arrays
 // of Objects:
-// 
+//
 // 1) Select a cross over point (cutLocation)
 //    randomly (going from 0 to A.length)
 // 2) Swap values from `key` one to another,

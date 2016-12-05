@@ -208,7 +208,7 @@ GameManipulator.startNewGame = function (next) {
     // Press space to begin game (repetidelly)
     _startKeyInterval = setInterval(function (){
       // Due to dino slowly gliding over the screen after multiple restarts, its better to just reload the page
-      robot.keyTap('r','command');
+      // robot.keyTap('r','command');
       setTimeout(function() {
         // Once reloaded we wait 0.5sec for it to let us start the game with a space.
           robot.keyTap(' ');
@@ -392,20 +392,20 @@ GameManipulator.setGameOutput = function (output){
     robot.keyToggle('down', RELEASE);
   } else {
 
-    // Filter JUMP
-    if (GameManipulator.lastOutputSet != 'JUMP') {
-      GameManipulator.lastOutputSetTime = Date.now();
-    }
+    // // Filter JUMP
+    // if (GameManipulator.lastOutputSet != 'JUMP') {
+    //   GameManipulator.lastOutputSetTime = Date.now();
+    // }
 
     // JUMP
     // Check if hasn't jump for more than 3 continuous secconds
-    if (Date.now() - GameManipulator.lastOutputSetTime < 3000) {
-      robot.keyToggle('up', PRESS);
-      robot.keyToggle('down', RELEASE);
-    } else {
-      robot.keyToggle('up', RELEASE);
-      robot.keyToggle('down', RELEASE);
-    }
+    // if (Date.now() - GameManipulator.lastOutputSetTime < 6000) {
+    //   robot.keyToggle('up', PRESS);
+    //   robot.keyToggle('down', RELEASE);
+    // } else {
+    robot.keyToggle('up', PRESS);
+    robot.keyToggle('down', RELEASE);
+    // }
 
   }
 
@@ -417,7 +417,7 @@ GameManipulator.setGameOutput = function (output){
 // Simply maps an real number to string actions
 //
 GameManipulator.getDiscreteState = function (value){
-  if (value < 0.45) {
+  if (value < 0.48) {
     return 'DOWN'
   } else if(value > 0.55) {
     return 'JUMP';

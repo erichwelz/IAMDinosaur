@@ -84,7 +84,6 @@ UI.init = function (gameManipulator, learner) {
     label: 'Saved Genomes',
   });
 
-
   // Callback for Loading genomes and focusing tree
   screen.key(['l','L'], UI.savesTree.focus.bind(UI.savesTree));
   UI.savesTree.on('click', UI.savesTree.focus.bind(UI.savesTree));
@@ -175,7 +174,7 @@ UI.render = function () {
     data: [
       Math.round(UI.gm.sensors[0].value * 100),
       Math.round(UI.gm.sensors[0].size * 100),
-      Math.round(UI.gm.sensors[0].speed * 100),
+      Math.round(UI.gm.sensors[0].speed * 10),
       Math.round(UI.gm.gameOutput * 100),
     ]
   })

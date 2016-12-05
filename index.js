@@ -9,7 +9,6 @@ var UI = require('./UI');
 // Configure Robotjs
 robot.setMouseDelay(1);
 
-
 // Initialize Game
 GameManipulator.findGamePosition();
 
